@@ -5,12 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Avatar</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuIcon = document.querySelector(".menu-icon");
+            const navLinks = document.querySelector(".nav-links");
+
+            menuIcon.addEventListener("click", function (event) {
+                navLinks.classList.toggle("active");
+                menuIcon.classList.toggle("open"); 
+                event.stopPropagation(); 
+            });
+
+            document.addEventListener("click", function (event) {
+                if (!navLinks.contains(event.target) && !menuIcon.contains(event.target)) {
+                    navLinks.classList.remove("active");
+                    menuIcon.classList.remove("open"); 
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="container">
         <header>
         <a href="#" class="logo">Avatar</a>
-   <ul>
+        <button class="menu-icon">&#9776;</button>
+        <ul class="nav-links">
+
     <li><a href="#">home</a></li>
     <li><a href="#">clans</a></li>
     <li><a href="#">video</a></li>
@@ -24,5 +45,6 @@
     <button>click here</button>
 </div>  
 </div>
+
 </body>
 </html>

@@ -26,7 +26,7 @@ body{
     url(download.webp);
     width: 90%;
     height: 640px;
-    background-size: cover; /* اجعل الصورة تملأ الحاوية */
+    background-size: cover;
     background-repeat: no-repeat;
 }
 .container:hover{
@@ -41,6 +41,17 @@ header{
     align-items: center;
     padding: 10px
 }
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    position: relative; /*Confirm its appearance */
+    z-index: 1000; /* It is on the top of the list */
+}
+
 .logo{
     font-size: 30px;
     text-transform: uppercase;
@@ -87,39 +98,51 @@ ul a:hover{
     border-color: white;
     color: white;
 }
-/* Responsive Design */
-
 @media (max-width: 768px) {
-    .container {
-        height: auto;
-        padding: 10px;
-    }
-
     header {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row;
+        justify-content: space-between;
     }
 
-     ul {
+    .menu-icon {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
         flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: rgba(0, 0, 0, 0.9);
         width: 100%;
+        text-align: center;
         padding: 10px 0;
     }
 
-     ul li {
-        margin: 5px 0;
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
     }
 
     .content {
         width: 90%;
+        text-align: center;
     }
 
     .content h2 {
-        font-size: 40px;
+        font-size: 50px;
     }
 }
 
 @media (max-width: 480px) {
+    .container {
+        height: 400px;
+    }
+
     .content h2 {
         font-size: 30px;
     }
